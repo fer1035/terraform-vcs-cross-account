@@ -1,7 +1,7 @@
 # Main account deployment.
 
 resource "aws_s3_bucket" "main" {
-  bucket = "mybucket-${local.account_id}-${local.region}"
+  bucket = "mybucket-${local.main_account_id}-${local.main_region}"
 }
 
 resource "aws_s3_bucket_acl" "main" {
