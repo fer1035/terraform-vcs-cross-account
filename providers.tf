@@ -1,6 +1,6 @@
 # Main account provider data.
 provider "aws" {
-  region     = "us-east-1"
+  region     = var.region
   access_key = var.aws_access_key_id
   secret_key = var.aws_secret_access_key
   default_tags {
@@ -17,8 +17,8 @@ provider "aws" {
 
 # Sub-account provider data.
 provider "aws" {
-  alias   = "cross-account"
-  region     = "us-east-1"
+  alias      = "cross-account"
+  region     = var.region
   access_key = var.aws_access_key_id
   secret_key = var.aws_secret_access_key
   default_tags {
