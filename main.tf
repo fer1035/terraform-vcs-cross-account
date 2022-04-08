@@ -64,7 +64,6 @@ resource "aws_s3_bucket_acl" "sub" {
   acl      = "private"
 }
 output "sub_bucket_name" {
-  provider    = aws.cross-account
   value       = aws_s3_bucket.sub.id
   description = "Sub-account S3 bucket name."
 }
