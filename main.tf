@@ -34,6 +34,9 @@ provider "aws" {
 # Sub-account provider data.
 provider "aws" {
   alias   = "cross-account"
+  region     = "us-east-1"
+  access_key = var.aws_access_key_id
+  secret_key = var.aws_secret_access_key
   assume_role {
     role_arn     = var.aws_assumed_role_arn
     session_name = "terraform-cross-account-test"
