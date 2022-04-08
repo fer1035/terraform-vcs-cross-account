@@ -37,3 +37,23 @@ provider "aws" {
     # external_id  = "EXTERNAL-ID"
   }
 }
+
+# Main account intrinsic variables.
+data "aws_caller_identity" "main" {}
+data "aws_region" "main" {}
+locals {
+  main_account_id = data.aws_caller_identity.main.account_id
+  main_region     = data.aws_region.main.name
+}
+
+# Sub-account intrinsic variables.
+data "aws_caller_identity" "sub" {
+  provider = aws.cross-account
+}
+data "aws_region" "sub" {
+  provider = aws.cross-account
+}
+locals {
+  sub_account_id = data.aws_caller_identity.sub.account_id
+  sub_region     = data.aws_region.sub.name
+}

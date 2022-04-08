@@ -2,7 +2,7 @@
 
 resource "aws_s3_bucket" "sub" {
   provider = aws.cross-account
-  bucket   = "mybucket-${local.account_id}-${local.region}"
+  bucket   = "mybucket-${local.sub_account_id}-${local.sub_region}"
 }
 
 resource "aws_s3_bucket_acl" "sub" {
