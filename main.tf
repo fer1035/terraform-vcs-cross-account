@@ -44,7 +44,7 @@ provider "aws" {
 }
 
 # Main account deployment.
-/* resource "aws_s3_bucket" "main" {}
+resource "aws_s3_bucket" "main" {}
 resource "aws_s3_bucket_acl" "main" {
   bucket = aws_s3_bucket.main.id
   acl    = "private"
@@ -56,7 +56,7 @@ output "main_bucket_name" {
 
 # Sub-account deployment.
 resource "aws_s3_bucket" "sub" {
-  # provider = aws.cross-account
+  provider = aws.cross-account
 }
 resource "aws_s3_bucket_acl" "sub" {
   provider = aws.cross-account
@@ -64,6 +64,7 @@ resource "aws_s3_bucket_acl" "sub" {
   acl      = "private"
 }
 output "sub_bucket_name" {
+  provider    = aws.cross-account
   value       = aws_s3_bucket.sub.id
   description = "Sub-account S3 bucket name."
-} */
+}
