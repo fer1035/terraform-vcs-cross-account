@@ -33,8 +33,8 @@ provider "aws" {
   }
   assume_role {
     role_arn     = var.aws_assumed_role_arn
-    session_name = "terraform-cross-account-test"
-    # external_id  = "EXTERNAL-ID"
+    session_name = "terraform-cross-account"
+    external_id  = var.aws_assumed_role_external_id
   }
 }
 

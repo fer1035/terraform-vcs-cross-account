@@ -11,6 +11,10 @@ variable "aws_assumed_role_arn" {
   type      = string
   sensitive = true
 }
+variable "aws_assumed_role_external_id" {
+  type      = string
+  sensitive = true
+}
 variable "region" {
   type      = string
   default   = "us-east-1"
