@@ -31,5 +31,5 @@ resource "aws_instance" "instance" {
   ami                  = "ami-0c02fb55956c7d316"
   instance_type        = "t2.micro"
   subnet_id            = "subnet-0f9d8707dbd8cd720"
-  ami_instance_profile = aws_iam_role.container_worker_role.name
+  iam_instance_profile = aws_iam_role.container_worker_role.name
 }
