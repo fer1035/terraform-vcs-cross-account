@@ -27,8 +27,9 @@ resource "aws_iam_role" "container_worker_role" {
 }
 
 resource "aws_iam_instance_profile" "profile" {
-  name = aws_iam_role.container_worker_role.name
-  role = aws_iam_role.container_worker_role.name
+  provider = aws.cross-account
+  name     = aws_iam_role.container_worker_role.name
+  role     = aws_iam_role.container_worker_role.name
 }
 
 resource "aws_instance" "instance" {
