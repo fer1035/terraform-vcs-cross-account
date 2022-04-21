@@ -9,7 +9,7 @@ resource "aws_security_group" "terraform_sg" {
 
 resource "aws_iam_role" "container_worker_role" {
   provider = aws.cross-account
-  name     = "ContainerWorker"
+  name     = "mycluster-k8s-wk-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
